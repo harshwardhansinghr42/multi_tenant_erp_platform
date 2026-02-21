@@ -52,10 +52,12 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  # Code style linter and auto-correct
+  gem "rubocop", require: false
 end
 
 # Load environment variables from .env in development/test
-gem "dotenv-rails", groups: [:development, :test]
+gem "dotenv-rails", groups: [ :development, :test ]
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

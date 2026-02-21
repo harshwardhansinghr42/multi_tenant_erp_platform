@@ -21,18 +21,18 @@ class TenantSwitcher
       # Build a Postgres connection config per-tenant using ENV fallbacks.
       db_name = if db_target.present?
                   db_target
-                else
+      else
                   "multi_tenant_erp_#{tenant.slug}"
-                end
+      end
 
       new_config = {
-        adapter:  'postgresql',
-        host:     ENV.fetch('POSTGRES_HOST', 'localhost'),
-        port:     ENV.fetch('POSTGRES_PORT', 5432),
-        username: ENV.fetch('POSTGRES_USER', 'postgres'),
-        password: ENV.fetch('POSTGRES_PASSWORD', nil),
+        adapter:  "postgresql",
+        host:     ENV.fetch("POSTGRES_HOST", "localhost"),
+        port:     ENV.fetch("POSTGRES_PORT", 5432),
+        username: ENV.fetch("POSTGRES_USER", "postgres"),
+        password: ENV.fetch("POSTGRES_PASSWORD", nil),
         database: db_name,
-        pool:     ENV.fetch('RAILS_MAX_THREADS') { 5 }
+        pool:     ENV.fetch("RAILS_MAX_THREADS") { 5 }
       }
 
       TenantRecord.establish_connection(new_config)

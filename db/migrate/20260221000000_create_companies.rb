@@ -12,4 +12,3 @@ class CreateCompanies < ActiveRecord::Migration[8.0]
     add_index :companies, :slug, unique: true
   end
 end
-

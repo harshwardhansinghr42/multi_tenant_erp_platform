@@ -19,7 +19,7 @@ namespace :tenant_db do
   end
 
   task migrate: :environment do
-    slug = ENV.fetch('COMPANY')
+    slug = ENV.fetch("COMPANY")
     company = Company.find_by!(slug: slug)
     migrate_company(company)
   end
