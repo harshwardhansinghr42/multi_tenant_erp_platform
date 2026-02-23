@@ -1,0 +1,6 @@
+# Sidekiq-scheduler cron-like schedule for recurring jobs.
+product_sync:
+	cron: "0 0 * * *"  # every day at 00:00 (midnight)
+	class: ProductSyncJob
+	queue: default
+	description: "Import product CSVs into each tenant DB nightly"

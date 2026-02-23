@@ -19,6 +19,7 @@ gem "jbuilder"
 
 # Use bcrypt for has_secure_password
 gem "bcrypt", "~> 3.1.7"
+gem "csv"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -28,7 +29,9 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
 gem "solid_cache"
-gem "solid_queue"
+gem "redis", "~> 4.8"
+gem "sidekiq"
+gem "sidekiq-scheduler"
 gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -56,6 +59,9 @@ group :development, :test do
   gem "rubocop", require: false
 end
 
+# JSON web tokens for API auth
+gem "jwt", "~> 2.6"
+
 # Load environment variables from .env in development/test
 gem "dotenv-rails", groups: [ :development, :test ]
 
@@ -68,4 +74,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  # Ensure a minitest version compatible with Rails 8 test integration
+  gem "minitest", "~> 5.14"
 end

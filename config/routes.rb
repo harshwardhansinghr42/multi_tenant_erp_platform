@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  namespace :api, defaults: { format: :json } do
+    post "login", to: "sessions#create"
+    post "orders", to: "orders#create"
+  end
 end

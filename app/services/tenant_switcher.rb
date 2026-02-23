@@ -41,11 +41,17 @@ class TenantSwitcher
     yield
 
   ensure
+    # Best-effort: disconnect any tenant-specific connection pool before restoring previous config.
+    if defined?(TenantRecord) && TenantRecord.connection_pool
+      begin
+        TenantRecord.connection_pool.disconnect!
+      rescue StandardError
+        # ignore disconnect errors — we still attempt to restore previous config
+      end
+    end
+
     if previous_config
       TenantRecord.establish_connection(previous_config)
-    else
-      # If there was no previous config, disconnect the tenant connection to avoid leaking handles
-      TenantRecord.connection_pool.disconnect! if defined?(TenantRecord) && TenantRecord.connected?
     end
   end
 end
