@@ -75,5 +75,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   # Ensure a minitest version compatible with Rails 8 test integration
-  gem "minitest", "~> 5.14"
+  gem "minitest", "~> 6.0"
 end
