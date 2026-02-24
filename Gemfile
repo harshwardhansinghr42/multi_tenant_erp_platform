@@ -29,7 +29,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
 gem "solid_cache"
-gem "redis", "~> 4.8"
+gem "redis", "~> 5.4"
 gem "sidekiq"
 gem "sidekiq-scheduler"
 gem "solid_cable"
