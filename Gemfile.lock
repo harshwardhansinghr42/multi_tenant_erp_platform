@@ -134,7 +134,7 @@ GEM
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
     json (2.18.1)
-    jwt (2.10.1)
+    jwt (3.1.2)
       base64
     kamal (2.10.1)
       activesupport (>= 7.0)
@@ -381,7 +381,7 @@ DEPENDENCIES
   dotenv-rails
   importmap-rails
   jbuilder
-  jwt (~> 2.6)
+  jwt (~> 3.1)
   kamal
   minitest (~> 5.14)
   pg (~> 1.4)
